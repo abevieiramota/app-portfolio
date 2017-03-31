@@ -17,9 +17,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import br.com.abevieiramota.portfolio.controller.HomeController;
+import br.com.abevieiramota.portfolio.foto.controller.FotoController;
 
 @EnableWebMvc
-@ComponentScan(basePackageClasses = { HomeController.class })
+@ComponentScan(basePackageClasses = { HomeController.class, FotoController.class })
 public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 
 	@Bean
