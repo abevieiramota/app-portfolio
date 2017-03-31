@@ -1,11 +1,15 @@
-angular.module("portfolio").controller("FotosController", function($scope) {
+angular.module("portfolio").controller("FotosController", function($scope, $http) {
 
-	$scope.fotos = [ {
-		url : "http://www.fundosanimais.com/Minis/leoes.jpg",
-		titulo : "Leão"
-	}, {
-		url : "http://www.fundosanimais.com/Minis/leoes.jpg",
-		titulo : "Leão2"
-	} ];
+	var promise = $http.get("foto/");
+	
+	promise.then(function(retorno) {
+		
+		$scope.fotos = retorno.data;
+		
+	}).catch(function(error) {
+		
+		console.log(error);
+		
+	});
 
 });
