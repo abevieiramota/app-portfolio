@@ -23,9 +23,9 @@
 		</div>
 
 		<div class="row">
-			<meu-painel ng-repeat="foto in fotos" titulo="{{foto.titulo}}">
+			<meu-painel ng-repeat="foto in fotos" titulo="{{foto.name}}">
 			<img class="img-responsive center-block" src="{{foto.url}}"
-				alt="{{foto.titulo}}"> </meu-painel>
+				alt="{{foto.name}}"> </meu-painel>
 		</div>
 
 	</div>
