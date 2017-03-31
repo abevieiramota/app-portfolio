@@ -4,9 +4,7 @@ angular.module("portfolio").controller("FotosController", function($scope, $http
 	
 	promise.then(function(retorno) {
 		
-		$scope.fotos = retorno.data.memes;
-		
-		console.log(Object.keys($scope.fotos.data.data.memes));
+		$scope.fotos = retorno.data.data.memes;
 		
 	}).catch(function(error) {
 		
