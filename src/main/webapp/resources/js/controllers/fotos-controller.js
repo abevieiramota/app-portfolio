@@ -1,7 +1,11 @@
 angular.module("portfolio").controller("FotosController", function($scope) {
-	
-	$scope.foto = {
-			url: "http://www.fundosanimais.com/Minis/leoes.jpg",
-			titulo: "Leão"			
-	};
+
+	$scope.fotos = [ {
+		url : "http://www.fundosanimais.com/Minis/leoes.jpg",
+		titulo : "Leão"
+	}, {
+		url : "http://www.fundosanimais.com/Minis/leoes.jpg",
+		titulo : "Leão2"
+	} ];
+
 });
