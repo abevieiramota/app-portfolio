@@ -1,4 +1,7 @@
 angular.module("portfolio").controller("FotosController", function($scope, $http) {
+	
+	$scope.fotos = [];
+	$scope.filtro = '';
 
 	var promise = $http.get("https://api.imgflip.com/get_memes");
 	

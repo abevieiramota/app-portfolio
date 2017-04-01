@@ -18,13 +18,22 @@
 </head>
 <body ng-controller="FotosController">
 	<div class="container">
-		<div class="jumbotron">
+		<div class="jumbotron"> 
 			<h1 class="text-center">Olha as fotos!</h1>
 		</div>
 
 		<div class="row">
-			<meu-painel ng-repeat="foto in fotos" titulo="{{foto.name}}">
-			<img class="img-responsive center-block" src="{{foto.url}}"
+			<div class="col-md-12">
+				<form>
+					<input ng-model="filtro" type="text" class="form-control" placeholder="filtrar" />
+				</form>
+			</div>
+		</div>
+
+		<div class="row">
+			<meu-painel class="col-md-2" ng-repeat="foto in fotos | filter: filtro"
+				titulo="{{foto.name}}"> <img
+				class="img-responsive center-block" src="{{foto.url}}"
 				alt="{{foto.name}}"> </meu-painel>
 		</div>
 
