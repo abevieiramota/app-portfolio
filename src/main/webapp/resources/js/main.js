@@ -1,1 +1,1 @@
-angular.module("portfolio", [ "minhasDiretivas" ]);
+angular.module("portfolio", [ "minhasDiretivas", "ngAnimate" ]);
