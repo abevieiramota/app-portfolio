@@ -5,6 +5,7 @@ public class Foto {
 	private String url;
 	private String titulo;
 	private String descricao;
+	private Grupo grupo;
 	private Integer id;
 	
 	public String getUrl() {
@@ -30,5 +31,11 @@ public class Foto {
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	public Grupo getGrupo() {
+		return grupo;
+	}
+	public void setGrupo(Grupo grupo) {
+		this.grupo = grupo;
 	}
 }

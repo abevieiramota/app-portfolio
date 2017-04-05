@@ -21,6 +21,8 @@
 	src="resources/js/controllers/fotos-controller.js"></script>
 <script type="text/javascript"
 	src="resources/js/controllers/foto-controller.js"></script>
+<script type="text/javascript"
+	src="resources/js/controllers/grupos-controller.js"></script>
 </head>
 <body ng-controller="FotosController">
 	<div class="container">
