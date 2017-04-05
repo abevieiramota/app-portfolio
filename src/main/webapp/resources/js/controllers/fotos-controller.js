@@ -4,7 +4,7 @@ angular.module("foto")
 	$scope.fotos = [];
 	$scope.filtro = '';
 
-	var promise = $http.get("/portfolio/api/foto");
+	var promise = $http.get("/api/foto");
 	
 	promise.then(function(retorno) {
 		

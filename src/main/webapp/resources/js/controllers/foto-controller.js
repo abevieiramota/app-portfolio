@@ -8,7 +8,7 @@ angular.module("foto")
 		
 		if($scope.formulario.$valid) {
 		
-			var promise = $http.post("/portfolio/api/foto", $scope.foto);
+			var promise = $http.post("/api/foto", $scope.foto);
 			
 			promise.then(function(retorno) {
 				
