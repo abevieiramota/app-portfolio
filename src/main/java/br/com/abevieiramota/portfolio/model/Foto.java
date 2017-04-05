@@ -5,6 +5,7 @@ public class Foto {
 	private String url;
 	private String titulo;
 	private String descricao;
+	private Integer id;
 	
 	public String getUrl() {
 		return url;
@@ -23,5 +24,11 @@ public class Foto {
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
 	}
 }
