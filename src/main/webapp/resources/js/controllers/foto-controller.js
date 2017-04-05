@@ -6,9 +6,9 @@ angular.module("foto")
 	
 	if($routeParams.fotoId) {
 		
-		resourceFoto.get({fotoId: $routeParams.fotoId}, function() {
+		resourceFoto.get({fotoId: $routeParams.fotoId}, function(foto) {
 			
-			$scope.foto = response.data;
+			$scope.foto = foto;
 		}, function(error) {
 			
 			console.log(error);
