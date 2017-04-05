@@ -30,7 +30,7 @@ angular.module("foto")
 				
 			} else {
 				
-				resourceFoto.post($scope.foto, function() {
+				resourceFoto.save($scope.foto, function() {
 					
 					$scope.mensagem = "Foto cadastrada com sucesso";
 				}, function(error) {
