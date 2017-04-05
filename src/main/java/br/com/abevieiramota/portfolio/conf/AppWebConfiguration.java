@@ -16,11 +16,11 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-import br.com.abevieiramota.portfolio.controller.HomeController;
-import br.com.abevieiramota.portfolio.foto.controller.FotoController;
+import br.com.abevieiramota.portfolio.controller.MemeController;
+import br.com.abevieiramota.portfolio.foto.controller.FotoService;
 
 @EnableWebMvc
-@ComponentScan(basePackageClasses = { HomeController.class, FotoController.class })
+@ComponentScan(basePackageClasses = { MemeController.class, FotoService.class })
 public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 
 	@Bean

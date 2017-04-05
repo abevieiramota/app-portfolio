@@ -4,6 +4,7 @@ public class Foto {
 
 	private String url;
 	private String titulo;
+	private String descricao;
 	
 	public String getUrl() {
 		return url;
@@ -16,5 +17,11 @@ public class Foto {
 	}
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
+	}
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 }

@@ -1,18 +1,18 @@
-angular.module("portfolio").controller("FotosController", function($scope, $http) {
+angular.module("foto")
+.controller("FotosController", function($scope, $http) {
 	
 	$scope.fotos = [];
 	$scope.filtro = '';
 
-	var promise = $http.get("https://api.imgflip.com/get_memes");
+	var promise = $http.get("/portfolio/api/foto");
 	
 	promise.then(function(retorno) {
 		
-		$scope.fotos = retorno.data.data.memes;
+		$scope.fotos = retorno.data;
 		
 	}).catch(function(error) {
 		
 		console.log(error);
-		
 	});
 
 });

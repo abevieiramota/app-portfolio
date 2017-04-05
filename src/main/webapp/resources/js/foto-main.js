@@ -1,13 +1,14 @@
-angular.module("portfolio", [ "minhasDiretivas", "ngAnimate", "ngRoute" ])
+angular.module("foto", [ "minhasDiretivas", "ngAnimate", "ngRoute" ])
 		.config(function($routeProvider) {
 
 			$routeProvider.when("/fotos", {
-				templateUrl : "partials/principal.html",
+				templateUrl : "partials/foto-principal.html",
 				controller : "FotosController"
 			});
 
 			$routeProvider.when("/fotos/new", {
-				templateUrl : "partials/fotos.html"
+				templateUrl : "partials/foto-cadastro.html",
+				controller: "FotoController"
 			});
 
 			$routeProvider.otherwise({

@@ -1,0 +1,21 @@
+<div class="jumbotron">
+	<h1 class="text-center">Olha os Memes!</h1>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<form>
+			<div class="input-group">
+				<input ng-model="filtro" ng-model-options="{debounce: 500}"
+					type="text" class="form-control" placeholder="filtrar" />
+			</div>
+		</form>
+	</div>
+</div>
+
+<div class="row">
+	<meu-painel class="col-md-2 painel-animado"
+		ng-repeat="meme in memes | filter: {name: filtro}"
+		titulo="{{meme.name}}"> <minha-foto url="{{meme.url}}"
+		titulo="{{meme.titulo}}"></minha-foto> </meu-painel>
+</div>
