@@ -14,6 +14,9 @@
 	src="resources/js/lib/angular-animate.min.js"></script>
 <script type="text/javascript"
 	src="resources/js/lib/angular-route.min.js"></script>
+<script type="text/javascript"
+	src="resources/js/lib/angular-resource.min.js"></script>
+	<script type="text/javascript" src="resources/js/services/meus-servicos.js"></script>
 <script type="text/javascript" src="resources/js/foto-main.js"></script>
 <script type="text/javascript"
 	src="resources/js/directives/minhas-diretivas.js"></script>

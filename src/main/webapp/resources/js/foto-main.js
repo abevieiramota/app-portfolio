@@ -1,4 +1,4 @@
-angular.module("foto", [ "minhasDiretivas", "ngAnimate", "ngRoute" ])
+angular.module("foto", [ "minhasDiretivas", "ngAnimate", "ngRoute", "meusServicos" ])
 		.config(function($routeProvider) {
 
 			$routeProvider.when("/fotos", {

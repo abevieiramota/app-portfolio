@@ -1,34 +1,24 @@
 angular.module("foto")
-.controller("FotosController", function($scope, $http) {
+.controller("FotosController", function($scope, resourceFoto) {
 	
 	$scope.fotos = [];
 	$scope.filtro = "";
 	$scope.mensagem = "";
-
-	var promise = $http.get("/api/foto");
 	
-	promise.then(function(retorno) {
-		
-		$scope.fotos = retorno.data;
-		
-	}).catch(function(error) {
-		
+	resourceFoto.query(function(fotos) {
+		$scope.fotos = fotos;
+	}, function(error) {
 		console.log(error);
 	});
-	
+
 	$scope.remover = function(foto) {
 		
-		var promise = $http.delete("/api/foto/" + foto.id);
-		
-		promise.then(function() {
-			
+		resourceFoto.delete({fotoId: foto.id}, function() {
 			var indiceFoto = $scope.fotos.indexOf(foto);
 			$scope.fotos.splice(indiceFoto, 1);
 			
-			$scope.mensagem = "Foto " + foto.titulo + " foi removida com sucesso."; 
-		})
-		.catch(function(error) {
-			
+			$scope.mensagem = "Foto " + foto.titulo + " foi removida com sucesso.";
+		}, function(error) {
 			console.log(error);
 			$scope.mensagem = "Não foi possível remover " + foto.titulo + ".";
 		});

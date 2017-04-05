@@ -42,7 +42,7 @@ angular.module("minhasDiretivas", []).directive("meuPainel", function() {
 // & passa expressão
 	};
 	
-	ddo.template = '<button ng-click="{{acao}}" class="btn btn-danger btn-block">{{nome}}</button>';
+	ddo.template = '<button ng-click="acao()" class="btn btn-danger btn-block">{{nome}}</button>';
 	
 	return ddo;
 	

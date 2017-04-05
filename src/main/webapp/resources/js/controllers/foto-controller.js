@@ -1,18 +1,15 @@
 angular.module("foto")
-.controller("FotoController", function($scope, $http, $routeParams) {
+.controller("FotoController", function($scope, $routeParams, resourceFoto) {
 	
 	$scope.foto = {};
 	$scope.mensagem = '';
 	
 	if($routeParams.fotoId) {
 		
-		var promise = $http.get("/api/foto/" + $routeParams.fotoId);
-		
-		promise.then(function(response) {
+		resourceFoto.get({fotoId: $routeParams.fotoId}, function() {
 			
 			$scope.foto = response.data;
-		})
-		.catch(function(error) {
+		}, function(error) {
 			
 			console.log(error);
 			$scope.mensagem = "Não foi possível obter a foto "; 
@@ -25,31 +22,23 @@ angular.module("foto")
 			
 			if($scope.foto.id) {
 				
-				var promise = $http.put("/api/foto/" + $scope.foto.id, $scope.foto);
-				
-				promise.then(function() {
+				resourceFoto.update({fotoId: foto.id}, $scope.foto, function() {
 					$scope.mensagem = "A foto " + $scope.foto.titulo + " foi alterada com sucesso.";
-				})
-				.catch(function(error) {
+				}, function(error) {
 					$scope.mensagem = "Não foi possível editar a foto " + $scope.foto.titulo;
 				});
 				
 			} else {
-		
-				var promise = $http.post("/api/foto", $scope.foto);
 				
-				promise.then(function() {
+				resourceFoto.post($scope.foto, function() {
 					
 					$scope.mensagem = "Foto cadastrada com sucesso";
-				})
-				.catch(function(error) {
+				}, function(error) {
 					
 					$scope.mensagem = "Não foi possível cadastrar a foto";
 				});
 			}
 		}
 	};
-	
-	
 	
 });
