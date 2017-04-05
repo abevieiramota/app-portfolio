@@ -22,7 +22,7 @@ angular.module("foto")
 			
 			if($scope.foto.id) {
 				
-				resourceFoto.update({fotoId: foto.id}, $scope.foto, function() {
+				resourceFoto.update({fotoId: $scope.foto.id}, $scope.foto, function() {
 					$scope.mensagem = "A foto " + $scope.foto.titulo + " foi alterada com sucesso.";
 				}, function(error) {
 					$scope.mensagem = "Não foi possível editar a foto " + $scope.foto.titulo;
