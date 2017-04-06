@@ -1,8 +1,9 @@
 angular.module("foto")
-.controller("FotoController", function($scope, $routeParams, resourceFoto) {
+.controller("FotoController", function($scope, $routeParams, cadastroDeFoto, resourceFoto) {
 	
 	$scope.foto = {};
 	$scope.mensagem = '';
+	$scope.focado = false;
 	
 	if($routeParams.fotoId) {
 		
@@ -20,24 +21,18 @@ angular.module("foto")
 		
 		if($scope.formulario.$valid) {
 			
-			if($scope.foto.id) {
+			cadastroDeFoto.cadastrar($scope.foto)
+			.then(function(dados) {
 				
-				resourceFoto.update({fotoId: $scope.foto.id}, $scope.foto, function() {
-					$scope.mensagem = "A foto " + $scope.foto.titulo + " foi alterada com sucesso.";
-				}, function(error) {
-					$scope.mensagem = "Não foi possível editar a foto " + $scope.foto.titulo;
-				});
-				
-			} else {
-				
-				resourceFoto.save($scope.foto, function() {
-					
-					$scope.mensagem = "Foto cadastrada com sucesso";
-				}, function(error) {
-					
-					$scope.mensagem = "Não foi possível cadastrar a foto";
-				});
-			}
+				$scope.mensagem = dados.mensagem;
+				if(dados.inclusao) {
+					$scope.foto = {};
+					$scope.formulario.$setPristine();
+				}
+			})
+			.catch(function(dados) {
+				$scope.mensagem = dados.mensagem;
+			});
 		}
 	};
 	

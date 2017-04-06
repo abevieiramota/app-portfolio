@@ -1,4 +1,4 @@
-angular.module("minhasDiretivas", []).directive("meuPainel", function() {
+angular.module("minhasDiretivas", ["meusServicos"]).directive("meuPainel", function() {
 
 	var ddo = {};
 
@@ -46,4 +46,41 @@ angular.module("minhasDiretivas", []).directive("meuPainel", function() {
 	
 	return ddo;
 	
+})
+.directive("meuFocus", function() {
+	
+	var ddo = {};
+	
+	ddo.restrict = "A";
+	
+	ddo.link = function(scope, element) {
+		
+		scope.$on("fotoCadastrada", function() {
+			
+			console.log("heeeee");
+			element[0].focus();
+		});
+	};
+	
+	return ddo;
+})
+.directive("meusTitulos", function() {
+	
+	var ddo = {};
+	
+	ddo.restrict = "E";
+	
+	ddo.template = '<ul><li ng-repeat="titulo in titulos">{{titulo}}</li></ul>';
+	
+	ddo.controller = function($scope, resourceFoto) {
+		
+		resourceFoto.query(function(fotos) {
+			console.log(fotos);
+			$scope.titulos = fotos.map(function(foto) {
+				return foto.titulo;
+			});
+		}) 
+	};
+	
+	return ddo;
 });
